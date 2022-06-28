@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="123456789import pandas as pdimport numpy as npfrom sklearn.model_selection import train_test_splitfrom sklearn.preprocessing import PolynomialFeaturesfrom sklearn.linear_model import LinearRegressionf">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://moonhojun.github.io/2022/06/28/perch3/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="123456789import pandas as pdimport numpy as npfrom sklearn.model_selection import train_test_splitfrom sklearn.preprocessing import PolynomialFeaturesfrom sklearn.linear_model import LinearRegressionf">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://moonhojun.github.io/output_18_0.png">
+<meta property="og:image" content="https://moonhojun.github.io/output_22_0.png">
+<meta property="article:published_time" content="2022-06-28T08:02:19.334Z">
+<meta property="article:modified_time" content="2022-06-28T07:57:16.000Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://moonhojun.github.io/output_18_0.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://moonhojun.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-perch3" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/06/28/perch3/" class="article-date">
+  <time class="dt-published" datetime="2022-06-28T08:02:19.334Z" itemprop="datePublished">2022-06-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> PolynomialFeatures</span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> StandardScaler</span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> Ridge</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> Lasso</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">&#x27;http://bit.ly/perch_csv_data&#x27;</span>)</span><br><span class="line">perch_full = df.to_numpy()</span><br><span class="line"><span class="built_in">print</span>(perch_full)</span><br></pre></td></tr></table></figure>
+
+<pre><code>[[ 8.4   2.11  1.41]
+ [13.7   3.53  2.  ]
+ [15.    3.82  2.43]
+ [16.2   4.59  2.63]
+ [17.4   4.59  2.94]
+ [18.    5.22  3.32]
+ [18.7   5.2   3.12]
+ [19.    5.64  3.05]
+ [19.6   5.14  3.04]
+ [20.    5.08  2.77]
+ [21.    5.69  3.56]
+ [21.    5.92  3.31]
+ [21.    5.69  3.67]
+ [21.3   6.38  3.53]
+ [22.    6.11  3.41]
+ [22.    5.64  3.52]
+ [22.    6.11  3.52]
+ [22.    5.88  3.52]
+ [22.    5.52  4.  ]
+ [22.5   5.86  3.62]
+ [22.5   6.79  3.62]
+ [22.7   5.95  3.63]
+ [23.    5.22  3.63]
+ [23.5   6.28  3.72]
+ [24.    7.29  3.72]
+ [24.    6.38  3.82]
+ [24.6   6.73  4.17]
+ [25.    6.44  3.68]
+ [25.6   6.56  4.24]
+ [26.5   7.17  4.14]
+ [27.3   8.32  5.14]
+ [27.5   7.17  4.34]
+ [27.5   7.05  4.34]
+ [27.5   7.28  4.57]
+ [28.    7.82  4.2 ]
+ [28.7   7.59  4.64]
+ [30.    7.62  4.77]
+ [32.8  10.03  6.02]
+ [34.5  10.26  6.39]
+ [35.   11.49  7.8 ]
+ [36.5  10.88  6.86]
+ [36.   10.61  6.74]
+ [37.   10.84  6.26]
+ [37.   10.57  6.37]
+ [39.   11.14  7.49]
+ [39.   11.14  6.  ]
+ [39.   12.43  7.35]
+ [40.   11.93  7.11]
+ [40.   11.73  7.22]
+ [40.   12.38  7.46]
+ [40.   11.14  6.63]
+ [42.   12.8   6.87]
+ [43.   11.93  7.28]
+ [43.   12.51  7.42]
+ [43.5  12.6   8.14]
+ [44.   12.49  7.6 ]]
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">perch_weight = np.array([<span class="number">5.9</span>, <span class="number">32.0</span>, <span class="number">40.0</span>, <span class="number">51.5</span>, <span class="number">70.0</span>, <span class="number">100.0</span>, <span class="number">78.0</span>, <span class="number">80.0</span>, <span class="number">85.0</span>, <span class="number">85.0</span>, <span class="number">110.0</span>,</span><br><span class="line">       <span class="number">115.0</span>, <span class="number">125.0</span>, <span class="number">130.0</span>, <span class="number">120.0</span>, <span class="number">120.0</span>, <span class="number">130.0</span>, <span class="number">135.0</span>, <span class="number">110.0</span>, <span class="number">130.0</span>,</span><br><span class="line">       <span class="number">150.0</span>, <span class="number">145.0</span>, <span class="number">150.0</span>, <span class="number">170.0</span>, <span class="number">225.0</span>, <span class="number">145.0</span>, <span class="number">188.0</span>, <span class="number">180.0</span>, <span class="number">197.0</span>,</span><br><span class="line">       <span class="number">218.0</span>, <span class="number">300.0</span>, <span class="number">260.0</span>, <span class="number">265.0</span>, <span class="number">250.0</span>, <span class="number">250.0</span>, <span class="number">300.0</span>, <span class="number">320.0</span>, <span class="number">514.0</span>,</span><br><span class="line">       <span class="number">556.0</span>, <span class="number">840.0</span>, <span class="number">685.0</span>, <span class="number">700.0</span>, <span class="number">700.0</span>, <span class="number">690.0</span>, <span class="number">900.0</span>, <span class="number">650.0</span>, <span class="number">820.0</span>,</span><br><span class="line">       <span class="number">850.0</span>, <span class="number">900.0</span>, <span class="number">1015.0</span>, <span class="number">820.0</span>, <span class="number">1100.0</span>, <span class="number">1000.0</span>, <span class="number">1100.0</span>, <span class="number">1000.0</span>,</span><br><span class="line">       <span class="number">1000.0</span>])</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">train_input, test_input, train_target, test_target = train_test_split(perch_full, perch_weight, random_state = <span class="number">42</span>)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">poly = PolynomialFeatures()</span><br><span class="line">poly.fit([[<span class="number">2</span>,<span class="number">3</span>]])</span><br><span class="line"><span class="built_in">print</span>(poly.transform([[<span class="number">2</span>,<span class="number">3</span>]]))</span><br></pre></td></tr></table></figure>
+
+<pre><code>[[1. 2. 3. 4. 6. 9.]]
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">poly = PolynomialFeatures(include_bias = <span class="literal">False</span>)</span><br><span class="line">poly.fit([[<span class="number">2</span>,<span class="number">3</span>]])</span><br><span class="line"><span class="built_in">print</span>(poly.transform([[<span class="number">2</span>,<span class="number">3</span>]]))</span><br></pre></td></tr></table></figure>
+
+<pre><code>[[2. 3. 4. 6. 9.]]
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">poly = PolynomialFeatures(include_bias = <span class="literal">False</span>)</span><br><span class="line">poly.fit(train_input)</span><br><span class="line">train_poly = poly.transform(train_input)</span><br><span class="line"><span class="built_in">print</span>(train_poly.shape)</span><br></pre></td></tr></table></figure>
+
+<pre><code>(42, 9)
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">poly.get_feature_names_out()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>array([&#39;x0&#39;, &#39;x1&#39;, &#39;x2&#39;, &#39;x0^2&#39;, &#39;x0 x1&#39;, &#39;x0 x2&#39;, &#39;x1^2&#39;, &#39;x1 x2&#39;,
+       &#39;x2^2&#39;], dtype=object)
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">test_poly = poly.transform(test_input)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">lr = LinearRegression()</span><br><span class="line">lr.fit(train_poly, train_target)</span><br><span class="line"><span class="built_in">print</span>(lr.score(train_poly, train_target))</span><br></pre></td></tr></table></figure>
+
+<pre><code>0.9903183436982124
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(lr.score(test_poly, test_target))</span><br></pre></td></tr></table></figure>
+
+<pre><code>0.9714559911594134
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">poly = PolynomialFeatures(degree = <span class="number">5</span>, include_bias = <span class="literal">False</span>)</span><br><span class="line">poly.fit(train_input)</span><br><span class="line">train_poly = poly.transform(train_input)</span><br><span class="line">test_poly = poly.transform(test_input)</span><br><span class="line"><span class="built_in">print</span>(train_poly.shape)</span><br></pre></td></tr></table></figure>
+
+<pre><code>(42, 55)
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lr.fit(train_poly, train_target)</span><br><span class="line"><span class="built_in">print</span>(lr.score(train_poly, train_target))</span><br></pre></td></tr></table></figure>
+
+<pre><code>0.9999999999991097
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(lr.score(test_poly, test_target))</span><br></pre></td></tr></table></figure>
+
+<pre><code>-144.40579242684848
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ss = StandardScaler()</span><br><span class="line">ss.fit(train_poly)</span><br><span class="line">train_scaled = ss.transform(train_poly)</span><br><span class="line">test_scaled = ss.transform(test_poly)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ridge = Ridge()</span><br><span class="line">ridge.fit(train_scaled, train_target)</span><br><span class="line"><span class="built_in">print</span>(ridge.score(train_scaled, train_target))</span><br><span class="line"><span class="built_in">print</span>(ridge.score(test_scaled, test_target))</span><br></pre></td></tr></table></figure>
+
+<pre><code>0.9896101671037343
+0.9790693977615397
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">train_score = []</span><br><span class="line">test_score = []</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">alpha_list = [<span class="number">0.001</span>, <span class="number">0.01</span>, <span class="number">0.1</span>, <span class="number">1</span>, <span class="number">10</span>, <span class="number">100</span>]</span><br><span class="line"><span class="keyword">for</span> alpha <span class="keyword">in</span> alpha_list : </span><br><span class="line">  ridge = Ridge(alpha = alpha)</span><br><span class="line">  ridge.fit(train_scaled, train_target)</span><br><span class="line">  train_score.append(ridge.score(train_scaled, train_target))</span><br><span class="line">  test_score.append(ridge.score(test_scaled, test_target))</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">plt.plot(np.log10(alpha_list), train_score)</span><br><span class="line">plt.plot(np.log10(alpha_list), test_score)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/output_18_0.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ridge = Ridge(alpha = <span class="number">0.1</span>)</span><br><span class="line">ridge.fit(train_scaled, train_target)</span><br><span class="line"><span class="built_in">print</span>(ridge.score(train_scaled, train_target))</span><br><span class="line"><span class="built_in">print</span>(ridge.score(test_scaled,test_target))</span><br></pre></td></tr></table></figure>
+
+<pre><code>0.9903815817570366
+0.9827976465386926
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">lasso = Lasso()</span><br><span class="line">lasso.fit(train_scaled, train_target)</span><br><span class="line"><span class="built_in">print</span>(lasso.score(train_scaled, train_target))</span><br><span class="line"><span class="built_in">print</span>(lasso.score(test_scaled, test_target))</span><br></pre></td></tr></table></figure>
+
+<pre><code>0.989789897208096
+0.9800593698421883
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">train_score = []</span><br><span class="line">test_score = []</span><br><span class="line">alpha_list = [<span class="number">0.001</span>, <span class="number">0.01</span>, <span class="number">0.1</span>, <span class="number">1</span>, <span class="number">10</span>, <span class="number">100</span>]</span><br><span class="line"><span class="keyword">for</span> alpha <span class="keyword">in</span> alpha_list :</span><br><span class="line">  lasso = Lasso(alpha = alpha, max_iter= <span class="number">10000</span>)</span><br><span class="line">  lasso.fit(train_scaled, train_target)</span><br><span class="line">  train_score.append(lasso.score(train_scaled, train_target))</span><br><span class="line">  test_score.append(lasso.score(test_scaled, test_target))</span><br></pre></td></tr></table></figure>
+
+<pre><code>/usr/local/lib/python3.7/dist-packages/sklearn/linear_model/_coordinate_descent.py:648: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 1.878e+04, tolerance: 5.183e+02
+  coef_, l1_reg, l2_reg, X, y, max_iter, tol, rng, random, positive
+/usr/local/lib/python3.7/dist-packages/sklearn/linear_model/_coordinate_descent.py:648: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 1.297e+04, tolerance: 5.183e+02
+  coef_, l1_reg, l2_reg, X, y, max_iter, tol, rng, random, positive
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">plt.plot(np.log10(alpha_list), train_score)</span><br><span class="line">plt.plot(np.log10(alpha_list), test_score)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/output_22_0.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">lasso = Lasso(alpha = <span class="number">10</span>)</span><br><span class="line">lasso.fit(train_scaled, train_target)</span><br><span class="line"><span class="built_in">print</span>(lasso.score(train_scaled, train_target))</span><br><span class="line"><span class="built_in">print</span>(lasso.score(test_scaled, test_target))</span><br></pre></td></tr></table></figure>
+
+<pre><code>0.9888067471131867
+0.9824470598706695
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(np.<span class="built_in">sum</span>(lasso.coef_ ==<span class="number">0</span>))</span><br></pre></td></tr></table></figure>
+
+<pre><code>40
+</code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://moonhojun.github.io/2022/06/28/perch3/" data-id="cl4xvtv58000864ur5iogao6q" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/06/28/perch2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/06/28/py20220627_2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/1970/01/">January 1970</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/06/28/LOGISTICREGRESSION/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/28/SGDclassifier/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/28/def_cal/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/28/perch2/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/28/perch3/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
